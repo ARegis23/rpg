@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <title>Daniel Desk's</title>
+    </head>
+
+    <body>
+
+        <h1>Ficha de Personagem</h1>
+        
+        <form class="form"  action="processar_formulario.php" method="post">
+
+            <h2>Informações Básicas</h2>
+
+            <label for="nome">Nome do Personagem</label>
+            <input type="text" id="nome" name="nome" required>
+
+                <br>
+    <!--calcular automaticamente o valor da vida-->
+                <p>Level: ${level}</p>
+                <p>Vida: ${vida}</p>
+
+                <br>
+
+            <label for="genero">Gênero</label>
+            <select id="genero" name="genero" required>
+                <option value="Escolha">-----Gênero-----</option>
+                <option value="masculino">Masculino</option>
+                <option value="feminino">Feminino</option>
+            </select>
+
+                <br><br>
+
+            <label for="origem">Origem</label>
+            <select id="origem" name="origem" required>
+                <option value="Escolha">-----Reino de Origem-----</option>
+                <option value="Imperial">Imperial</option>
+                <option value="Rhodoks">Rhodoks</option>
+                <option value="Nórdicos">Nórdicos</option>
+                <option value="Extremo Norte">Extremo Norte</option>
+                <option value="Khergits">Khergits</option>
+                <option value="Sarranids">Sarranids</option>
+            </select>
+
+                <br><br>
+
+            <label for="historia">Historia de Fundo</label>
+            <input type="text" id="historia" name="historia" required>
+            
+            <br><br>
+            <hr>
+
+            <h2>Atributos</h2>
+            <label for="forca">Força</label>
+            <input type="text" id="forca" name="forca" required>
+            <button> + </button>
+            <br>
+            <label for="agilidade">Agilidade</label>
+            <input type="text" id="agilidade" name="agilidade" required>
+            <button> + </button>
+            <br>
+            <label for="inteligencia">Inteligência</label>
+            <input type="text" id="inteligencia" name="inteligencia" required>
+            <button> + </button>
+            <br>
+            <label for="carisma">Carisma</label>
+            <input type="text" id="carisma" name="carisma" required>
+            <button> + </button>
+            <br><br>
+            <hr>        
+
+            <h2>Habilidades</h2>
+
+            <label for="vidadeferro">Vida de Ferro</label>
+            <input type="text" id="vidadeferro" name="vidadeferro" required>
+            <button> + </button>
+            <br>
+            <label for="poderdeataque">Poder de Ataque</label>
+            <input type="text" id="poderdeataque" name="poderdeataque" required>
+            <button> + </button>
+            <br>
+            <label for="arremessodearma">Arremesso de Arma</label>
+            <input type="text" id="arremessodearma" name="arremessodearma" required>
+            <button> + </button>
+            <br>
+            <label for="poderdetensao">Poder de Tensao</label>
+            <input type="text" id="poderdetensao" name="carisma" required>
+            <button> + </button>
+            <br>
+            <label for="maestriadearmas">Maestria de Armas</label>
+            <input type="text" id="maestriadearmas" name="forca" required>
+            <button> + </button>
+            <br>
+            <label for="escudos">Escudos</label>
+            <input type="text" id="agilidade" name="agilidade" required>
+            <button> + </button>
+            <br>
+            <label for="atletismo">Atletismo</label>
+            <input type="text" id="inteligencia" name="inteligencia" required>
+            <button> + </button>
+            <br>
+            <label for="cavalgar">Cavalgar</label>
+            <input type="text" id="carisma" name="carisma" required>
+            <button> + </button>
+            <br>
+            <label for="arqueariamontada">Arquearia Montada</label>
+            <input type="text" id="arqueariamontada" name="arqueariamontada" required>
+            <button> + </button>
+            <br>
+            <label for="saquear">Saquear</label>
+            <input type="text" id="saquear" name="saquear" required>
+            <button> + </button>
+            <br>
+            <label for="treinamento">Treinamento</label>
+            <input type="text" id="treinamento" name="treinamento" required>
+            <button> + </button>
+            <br>
+            <label for="rastrear">Rastrear</label>
+            <input type="text" id="rastrear" name="rastrear" required>
+            <button> + </button>
+            <br>
+            <label for="taticas">Táticas</label>
+            <input type="text" id="taticas" name="taticas" required>
+            <button> + </button>
+            <br>
+            <label for="exploracao">Exploração</label>
+            <input type="text" id="exploracao" name="exploracao" required>
+            <button> + </button>
+            <br>
+            <label for="visao">Visão</label>
+            <input type="text" id="visao" name="visao" required>
+            <button> + </button>
+            <br>
+            <label for="cargadeinventario">Carga de Inventário</label>
+            <input type="text" id="cargadeinventario" name="cargadeinventario" required>
+            <button> + </button>
+            <br>
+            <label for="tratarferidas">Tratar Feridas</label>
+            <input type="text" id="tratarferidas" name="tratarferidas" required>
+            <button> + </button>
+            <br>
+            <label for="cirurgia">Cirurgia</label>
+            <input type="text" id="cirurgia" name="cirurgia" required>
+            <button> + </button>
+            <br>
+            <label for="primeirossocorros">Primeiros Socorros</label>
+            <input type="text" id="primeirossocorros" name="primeirossocorros" required>
+            <button> + </button>
+            <br>
+            <label for="engenharia">Engenharia</label>
+            <input type="text" id="engenharia" name="engenharia" required>
+            <button> + </button>
+            <br>
+            <label for="persuasao">Persuasão</label>
+            <input type="text" id="persuasao" name="persuasao" required>
+            <button> + </button>
+            <br>
+            <label for="gestaoprisioneiros">Gestão de Prisioneiros</label>
+            <input type="text" id="gestaoprisioneiros" name="gestaoprisioneiros" required>
+            <button> + </button>
+            <br>
+            <label for="lideranca">Liderança</label>
+            <input type="text" id="lideranca" name="lideranca" required>
+            <button> + </button>
+            <br>
+            <label for="comercio">Comércio</label>
+            <input type="text" id="comercio" name="comercio" required>
+            <button> + </button>
+            <br><br>
+            <label for="somahabilidades">Total</label>
+            <input type="text" id="somahabilidades" name="somahabilidades">
+            <br><br>
+            <hr>    
+        
+
+            <h2>Perícias</h2>
+            <label for="umamao">Uma Mão</label>
+            <input type="text" id="umamao" name="umamao" required>
+            <button> + </button>
+            <br>
+            <label for="duasmaos">Duas Mãos</label>
+            <input type="text" id="duasmaos" name="duasmaos" required>
+            <button> + </button>
+            <br>
+            <label for="lancas">Lanças</label>
+            <input type="text" id="lancas" name="lancas" required>
+            <button> + </button>
+            <br>
+            <label for="arco">Arco</label>
+            <input type="text" id="arco" name="arco" required>
+            <button> + </button>
+            <br>
+            <label for="bestas">Bestas</label>
+            <input type="text" id="bestas" name="bestas" required>
+            <button> + </button>
+            <br>
+            <label for="armasdearremesso">Armas de Arremesso</label>
+            <input type="text" id="armasdearremesso" name="armasdearremesso" required>
+            <button> + </button>
+            <br><br>
+            <label for="somapericia">Total</label>
+            <input type="text" id="somapericia" name="somapericia">
+            <br><br>
+            <hr> 
+
+            <button>Enviar Ficha</button>
+        </form>
+
+        <div class="rodape">
+            <footer>
+                <a href="index.html"><strong>VOLTAR</strong></a>
+            </footer>
+        </div>
+
+    </body>
+</html>
+
+
