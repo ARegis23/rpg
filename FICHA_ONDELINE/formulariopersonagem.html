@@ -22,15 +22,17 @@
                 <br>
     <!--calcular automaticamente o valor da vida-->
                 <p>Level: ${level}</p>
+                <input type="text"  name="level" required>
                 <p>Vida: ${vida}</p>
+                <input type="text"  name="vida" required>
 
                 <br>
 
             <label for="genero">Gênero</label>
             <select id="genero" name="genero" required>
                 <option value="Escolha">-----Gênero-----</option>
-                <option value="masculino">Masculino</option>
-                <option value="feminino">Feminino</option>
+                <option value="m">Masculino</option>
+                <option value="f">Feminino</option>
             </select>
 
                 <br><br>
@@ -38,12 +40,12 @@
             <label for="origem">Origem</label>
             <select id="origem" name="origem" required>
                 <option value="Escolha">-----Reino de Origem-----</option>
-                <option value="Imperial">Imperial</option>
-                <option value="Rhodoks">Rhodoks</option>
-                <option value="Nórdicos">Nórdicos</option>
-                <option value="Extremo Norte">Extremo Norte</option>
-                <option value="Khergits">Khergits</option>
-                <option value="Sarranids">Sarranids</option>
+                <option value="i">Imperial</option>
+                <option value="r">Rhodoks</option>
+                <option value="n">Nórdicos</option>
+                <option value="v">Extremo Norte</option>
+                <option value="k">Khergits</option>
+                <option value="s">Sarranids</option>
             </select>
 
                 <br><br>
@@ -71,16 +73,19 @@
             <input type="text" id="carisma" name="carisma" required>
             <button> + </button>
             <br><br>
+            <label for="somaatributos">Total</label>
+            <input type="text" id="somaatributos" name="somaatributos">
+            <br><br>
             <hr>        
 
             <h2>Habilidades</h2>
 
-            <label for="vidadeferro">Vida de Ferro</label>
-            <input type="text" id="vidadeferro" name="vidadeferro" required>
+            <label for="vidaferro">Vida de Ferro</label>
+            <input type="text" id="vidaferro" name="vidaferro" required>
             <button> + </button>
             <br>
             <label for="poderdeataque">Poder de Ataque</label>
-            <input type="text" id="poderdeataque" name="poderdeataque" required>
+            <input type="text" id="poderataque" name="poderataque" required>
             <button> + </button>
             <br>
             <label for="arremessodearma">Arremesso de Arma</label>
@@ -88,23 +93,23 @@
             <button> + </button>
             <br>
             <label for="poderdetensao">Poder de Tensao</label>
-            <input type="text" id="poderdetensao" name="carisma" required>
+            <input type="text" id="poderdetensao" name="poderdetensao" required>
             <button> + </button>
             <br>
             <label for="maestriadearmas">Maestria de Armas</label>
-            <input type="text" id="maestriadearmas" name="forca" required>
+            <input type="text" id="maestriadearmas" name="maestriadearmas" required>
             <button> + </button>
             <br>
             <label for="escudos">Escudos</label>
-            <input type="text" id="agilidade" name="agilidade" required>
+            <input type="text" id="escudos" name="escudos" required>
             <button> + </button>
             <br>
             <label for="atletismo">Atletismo</label>
-            <input type="text" id="inteligencia" name="inteligencia" required>
+            <input type="text" id="atletismo" name="atletismo" required>
             <button> + </button>
             <br>
             <label for="cavalgar">Cavalgar</label>
-            <input type="text" id="carisma" name="carisma" required>
+            <input type="text" id="cavalgar" name="cavalgar" required>
             <button> + </button>
             <br>
             <label for="arqueariamontada">Arquearia Montada</label>
@@ -136,7 +141,7 @@
             <button> + </button>
             <br>
             <label for="cargadeinventario">Carga de Inventário</label>
-            <input type="text" id="cargadeinventario" name="cargadeinventario" required>
+            <input type="text" id="cargainventario" name="cargainventario" required>
             <button> + </button>
             <br>
             <label for="tratarferidas">Tratar Feridas</label>
@@ -159,8 +164,8 @@
             <input type="text" id="persuasao" name="persuasao" required>
             <button> + </button>
             <br>
-            <label for="gestaoprisioneiros">Gestão de Prisioneiros</label>
-            <input type="text" id="gestaoprisioneiros" name="gestaoprisioneiros" required>
+            <label for="gestaodeprisioneiros">Gestão de Prisioneiros</label>
+            <input type="text" id="gestaodeprisioneiros" name="gestaodeprisioneiros" required>
             <button> + </button>
             <br>
             <label for="lideranca">Liderança</label>
@@ -182,8 +187,8 @@
             <input type="text" id="umamao" name="umamao" required>
             <button> + </button>
             <br>
-            <label for="duasmaos">Duas Mãos</label>
-            <input type="text" id="duasmaos" name="duasmaos" required>
+            <label for="duasmao">Duas Mãos</label>
+            <input type="text" id="duasmao" name="duasmao" required>
             <button> + </button>
             <br>
             <label for="lancas">Lanças</label>
@@ -195,11 +200,11 @@
             <button> + </button>
             <br>
             <label for="bestas">Bestas</label>
-            <input type="text" id="bestas" name="bestas" required>
+            <input type="text" id="besta" name="besta" required>
             <button> + </button>
             <br>
             <label for="armasdearremesso">Armas de Arremesso</label>
-            <input type="text" id="armasdearremesso" name="armasdearremesso" required>
+            <input type="text" id="armadearremesso" name="armadearremesso" required>
             <button> + </button>
             <br><br>
             <label for="somapericia">Total</label>
@@ -218,5 +223,3 @@
 
     </body>
 </html>
-
-
