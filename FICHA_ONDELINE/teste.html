@@ -1,75 +1,106 @@
-<p> Level: <span id="level">01</span> </p>
-<p>Vida: <span id="vida">${vida}</span></p>
-<br>
-<label for="dinheiro"> Dinheiro $ </label>
-<input type="number" id="dinheiro" name="dinheiro" readonly>
-<button> + </button><button> - </button>
-<br>
+<?php
+session_start();
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $username = $_POST["username"];
+    $senha = $_POST["senha"];
 
-<br>
+    // Conectar ao banco de dados
+    $conn = new mysqli("localhost", "usuario", "senha", "nome_do_banco");
 
-<label for="genero">Gênero</label>
-<select id="genero" name="genero" required>
-    <option value="Escolha">-----Gênero-----</option>
-    <option value="m">Masculino</option>
-    <option value="f">Feminino</option>
-</select>
-
-<br><br>
-
-<label for="origem">Origem</label>
-<select id="origem" name="origem" required>
-    <option value="Escolha">-----Reino de Origem-----</option>
-    <option value="i">Imperial</option>
-    <option value="r">Rhodoks</option>
-    <option value="n">Nórdicos</option>
-    <option value="v">Extremo Norte</option>
-    <option value="k">Khergits</option>
-    <option value="s">Sarranids</option>
-</select>
-
-<br><br>
-
-<label for="historia">Historia de Fundo</label>
-<input type="text" id="historia" name="historia" required>
-
-<br><br>
-<hr>
-
-<h2>Atributos</h2>
-<label for="forca">Força</label>
-<input type="number" id="forca" name="forca" value="0" readonly>
-<button onclick="adicionarAtributo('forca')"> + </button>
-<br>
-<label for="agilidade">Agilidade</label>
-<input type="number" id="agilidade" name="agilidade" value="0" readonly>
-<button onclick="adicionarAtributo('agilidade')"> + </button>
-<br>
-<label for="inteligencia">Inteligência</label>
-<input type="number" id="inteligencia" name="inteligencia" value="0" readonly>
-<button onclick="adicionarAtributo('inteligencia')"> + </button>
-<br>
-<label for="carisma">Carisma</label>
-<input type="number" id="carisma" name="carisma" value="0" readonly>
-<button onclick="adicionarAtributo('carisma')"> + </button>
-<br><br>
-<label for="somaatributos">Total</label>
-<input type="number" id="somaatributos" name="somaatributos" value="20" readonly >
-<br><br>
-<hr>    
-
-<script>
-    function adicionarAtributo(atributo) {
-      var somaAtributosInput = document.getElementById("somaatributos");
-      var atributoInput = document.getElementById(atributo);
-      var level = parseInt(document.getElementById("level").innerText);
-
-      // Verifica se ainda há pontos disponíveis para atribuir
-      if (parseInt(somaAtributosInput.value) > 0 && parseInt(somaAtributosInput.value) <= level*10) {
-        somaAtributosInput.value = parseInt(somaAtributosInput.value) - 1;
-        atributoInput.value = parseInt(atributoInput.value) + 1;
-      } else {
-        alert("Você já usou todos os pontos disponíveis!");
-      }
+    // Verificar conexão
+    if ($conn->connect_error) {
+        die("Erro de conexão: " . $conn->connect_error);
     }
-</script>
+
+    // Preparar a consulta
+    $stmt = $conn->prepare("SELECT id, senha FROM usuarios WHERE username = ?");
+    $stmt->bind_param("s", $username);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    if ($result->num_rows == 1) {
+        $row = $result->fetch_assoc();
+        if (password_verify($senha, $row["senha"])) {
+            $_SESSION["loggedin"] = true;
+            $_SESSION["username"] = $username;
+            header("location: welcome.php");
+        } else {
+            echo "Nome de usuário ou senha incorretos.";
+        }
+    } else {
+        echo "Nome de usuário ou senha incorretos.";
+    }
+    $stmt->close();
+    $conn->close();
+}
+?>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+</head>
+<body>
+    <h2>Login</h2>
+    <form method="post">
+        <div>
+            <label for="username">Usuário:</label>
+            <input type="text" id="username" name="username" required>
+        </div>
+        <div>
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" name="senha" required>
+        </div>
+        <div>
+            <input type="submit" value="Login">
+        </div>
+    </form>
+</body>
+</html>
+
+
+<?php
+session_start();
+if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
+    header("location: login.php");
+    exit;
+}
+?>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bem-vindo</title>
+</head>
+<body>
+    <h1>Bem-vindo, <?php echo $_SESSION["username"]; ?>!</h1>
+    <p><a href="logout.php">Sair</a></p>
+</body>
+</html>
+
+
+// logout 
+
+<?php
+session_start();
+session_destroy();
+header("location: login.php");
+exit;
+?>
+
+
+//criptografar senha
+$senha = "senha_do_usuario"; // A senha fornecida pelo usuário
+
+// Criptografar a senha
+$senhaCriptografada = password_hash($senha, PASSWORD_DEFAULT);
+
+
+// Supondo que $senhaDoBanco seja a senha criptografada recuperada do banco de dados
+$senhaFornecidaPeloUsuario = "senha_do_usuario"; // A senha fornecida pelo usuário durante o login
+
+// Verificar a senha
+if (password_verify($senhaFornecidaPeloUsuario, $senhaDoBanco)) {
+    // A senha está correta
+    echo "Login bem-sucedido!";
+} else {
+    // A senha está incorreta
+    echo "Nome de usuário ou senha incorretos.";
+}
