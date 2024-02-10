@@ -1,28 +1,45 @@
 body {
-    margin: 0;
     font-family: Arial, sans-serif;
     background-color: rgb(63, 186, 200);
 }
 
-a{
-    display: flex;
-    text-decoration: none;
+.login {
+    width: 300px;
+    margin: 0 auto; /* Centraliza horizontalmente */
+    text-align: center; /* Alinha o texto ao centro */
 }
 
-.login{
-    display: flex;
-    justify-content: center;
+.login form div {
+    margin-bottom: 15px; /* Espaçamento entre os elementos */
 }
 
-button {
-    width: 200px;
-    font-size: 20px;
-    color:azure;
-    background-color: #1507d8;
+.login form input[type="text"],
+.login form input[type="password"],
+.login form input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.login form input[type="submit"] {
+    background-color: #230796;
+    color: #fff;
     cursor: pointer;
 }
 
-button:hover{
+.login form input[type="submit"]:hover{
     background-color: #0a0a09;
-    transition: 0.3s all    
+    transition: 0.3s all   
+}
+
+.login div a {
+    display: block; /* Para que os links ocupem toda a largura */
+    margin-bottom: 10px; /* Espaçamento entre os links */
+    text-decoration: none;
+    color: #f2ff00;
+    font-family: cursive;
+    font-size: 18px;
 }

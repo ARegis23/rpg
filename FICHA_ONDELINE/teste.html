@@ -1,106 +1,33 @@
-<?php
-session_start();
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = $_POST["username"];
-    $senha = $_POST["senha"];
-
-    // Conectar ao banco de dados
-    $conn = new mysqli("localhost", "usuario", "senha", "nome_do_banco");
-
-    // Verificar conexão
-    if ($conn->connect_error) {
-        die("Erro de conexão: " . $conn->connect_error);
-    }
-
-    // Preparar a consulta
-    $stmt = $conn->prepare("SELECT id, senha FROM usuarios WHERE username = ?");
-    $stmt->bind_param("s", $username);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    if ($result->num_rows == 1) {
-        $row = $result->fetch_assoc();
-        if (password_verify($senha, $row["senha"])) {
-            $_SESSION["loggedin"] = true;
-            $_SESSION["username"] = $username;
-            header("location: welcome.php");
-        } else {
-            echo "Nome de usuário ou senha incorretos.";
-        }
-    } else {
-        echo "Nome de usuário ou senha incorretos.";
-    }
-    $stmt->close();
-    $conn->close();
-}
-?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <style>
+
+    </style>
 </head>
 <body>
-    <h2>Login</h2>
-    <form method="post">
-        <div>
-            <label for="username">Usuário:</label>
-            <input type="text" id="username" name="username" required>
-        </div>
-        <div>
-            <label for="senha">Senha:</label>
-            <input type="password" id="senha" name="senha" required>
-        </div>
-        <div>
+    <div class="login">
+        <form>
+            <div>
+                <label for="username">Email</label>
+                <input type="text" id="username" name="username" placeholder="email@example.com" required>
+            </div>
+
+            <div>
+                <label for="senha">Senha</label>
+                <input type="password" id="senha" name="senha" placeholder="********" required>
+            </div>
+            
             <input type="submit" value="Login">
+        </form>
+
+        <div>
+            <a href="cadloginM.html">Novo Aqui? Cadastra-se!</a>
+            <a href="esqueceu.html">Esqueceu a Senha?</a>
         </div>
-    </form>
+    </div>
 </body>
 </html>
-
-
-<?php
-session_start();
-if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
-    header("location: login.php");
-    exit;
-}
-?>
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Bem-vindo</title>
-</head>
-<body>
-    <h1>Bem-vindo, <?php echo $_SESSION["username"]; ?>!</h1>
-    <p><a href="logout.php">Sair</a></p>
-</body>
-</html>
-
-
-// logout 
-
-<?php
-session_start();
-session_destroy();
-header("location: login.php");
-exit;
-?>
-
-
-//criptografar senha
-$senha = "senha_do_usuario"; // A senha fornecida pelo usuário
-
-// Criptografar a senha
-$senhaCriptografada = password_hash($senha, PASSWORD_DEFAULT);
-
-
-// Supondo que $senhaDoBanco seja a senha criptografada recuperada do banco de dados
-$senhaFornecidaPeloUsuario = "senha_do_usuario"; // A senha fornecida pelo usuário durante o login
-
-// Verificar a senha
-if (password_verify($senhaFornecidaPeloUsuario, $senhaDoBanco)) {
-    // A senha está correta
-    echo "Login bem-sucedido!";
-} else {
-    // A senha está incorreta
-    echo "Nome de usuário ou senha incorretos.";
-}
