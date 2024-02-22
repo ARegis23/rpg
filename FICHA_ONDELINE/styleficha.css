@@ -23,7 +23,7 @@ button:hover{
     transition: 0.3s all    
 }
 
-form{
+label{
 display: inline-block;
 width: 100px;
 text-align: right;    
