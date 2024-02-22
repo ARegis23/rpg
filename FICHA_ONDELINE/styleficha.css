@@ -9,3 +9,16 @@ input {
     margin: 5px;
     text-align: center;
 }
+
+button {
+    width: 200px;
+    font-size: 20px;
+    color:azure;
+    background-color: #1507d8;
+    cursor: pointer;
+}
+
+button:hover{
+    background-color: #0a0a09;
+    transition: 0.3s all    
+}

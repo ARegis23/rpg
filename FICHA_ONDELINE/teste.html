@@ -1,33 +1,279 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <style>
+<html lang="pt-br">
 
-    </style>
-</head>
-<body>
-    <div class="login">
-        <form>
-            <div>
-                <label for="username">Email</label>
-                <input type="text" id="username" name="username" placeholder="email@example.com" required>
-            </div>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styleficha.css">
+        <title>Daniel Desk's</title>
+    </head>
 
-            <div>
-                <label for="senha">Senha</label>
-                <input type="password" id="senha" name="senha" placeholder="********" required>
-            </div>
+    <body>
+
+        <h1>Ficha de Personagem</h1>
+        
+        <form class="form"  action="" method="post">
+
+            <h2>Informações Básicas</h2>
+
+            <label for="nome"> Nome do Personagem </label>
+            <input type="text" id="nome" name="nome" >
+            <!--required-->
+
+                <br>
+    <!--calcular automaticamente o valor da vida-->
+                <p> Level: <span id="level"> 01 </span> </p>
+                <p>Vida: <span id="vida"> ${vida} </span></p>
+                <br>
+                <label for="dinheiro"> Dinheiro $ </label>
+                <input type="number" id="dinheiro" name="dinheiro" readonly>
+                <button onclick=""('')"> + </button><button> - </button>
+                <br>
+
+                <br>
+
+            <label for="genero">Gênero</label>
+            <select id="genero" name="genero">
+                <!--required-->
+                <option value="Escolha">-----Gênero-----</option>
+                <option value="m">Masculino</option>
+                <option value="f">Feminino</option>
+            </select>
+
+                <br><br>
+
+            <label for="origem">Origem</label>
+            <select id="origem" name="origem">
+                <!--required-->
+                <option value="Escolha">-----Reino de Origem-----</option>
+                <option value="i">Imperial</option>
+                <option value="r">Rhodoks</option>
+                <option value="n">Nórdicos</option>
+                <option value="v">Extremo Norte</option>
+                <option value="k">Khergits</option>
+                <option value="s">Sarranids</option>
+            </select>
+
+                <br><br>
+
+            <label for="historia">Historia de Fundo</label>
+            <input type="text" id="historia" name="historia">
+            <!--required-->
             
-            <input type="submit" value="Login">
+            <br><br>
+            <hr>
+
+            <h2>Atributos</h2>
+            <label for="forca">Força</label>
+            <input type="number" id="forca" name="forca" value="0" readonly>
+            <button onclick="adicionarAtributo('forca')"> + </button>
+            <br>
+            <label for="agilidade">Agilidade</label>
+            <input type="number" id="agilidade" name="agilidade" value="0" readonly>
+            <button onclick="adicionarAtributo('agilidade')"> + </button>
+            <br>
+            <label for="inteligencia">Inteligência</label>
+            <input type="number" id="inteligencia" name="inteligencia" value="0" readonly>
+            <button onclick="adicionarAtributo('inteligencia')"> + </button>
+            <br>
+            <label for="carisma">Carisma</label>
+            <input type="number" id="carisma" name="carisma" value="0" readonly>
+            <button onclick="adicionarAtributo('carisma')"> + </button>
+            <br><br>
+            <label for="somaatributos">Total</label>
+            <input type="number" id="somaatributos" name="somaatributos" value="" readonly >
+            <br><br>
+            <hr>    
+
+                <script>
+                    function adicionarAtributo(atributo) {
+                    var somaAtributosInput = document.getElementById("somaatributos");
+                    var atributoInput = document.getElementById(atributo);
+                
+                    // Verifica se ainda há pontos disponíveis para atribuir
+                    if parseInt(somaAtributosInput.value) <= level*10) {
+                            somaAtributosInput.value = parseInt(somaAtributosInput.value) - 1;
+                            atributoInput.value = parseInt(atributoInput.value) + 1;
+                    if (parseInt(somaAtributosInput.value) > 0) {
+                        somaAtributosInput.value = parseInt(somaAtributosInput.value) - 1;
+                        atributoInput.value = parseInt(atributoInput.value) + 1;
+                    } else {
+                        alert("Você já usou todos os pontos disponíveis!");
+                    }
+                    }
+                </script>
+
+            
+            <h2>Habilidades</h2>
+
+            <label for="vidaferro">Vida de Ferro</label>
+            <input type="number" id="vidaferro" name="vidaferro" value="0" readonly>
+            <button onclick="adicionarHabilidade('vidaferro')"> + </button>
+            <br>
+            <label for="poderdeataque">Poder de Ataque</label>
+            <input type="number" id="poderataque" name="poderataque" value="0" readonly>
+            <button onclick="adicionarHabilidade('poderataque')"> + </button>
+            <br>
+            <label for="arremessodearma">Arremesso de Arma</label>
+            <input type="number" id="arremessodearma" name="arremessodearma" value="0" readonly>
+            <button onclick="adicionarHabilidade('arremessodearma')"> + </button>
+            <br>
+            <label for="poderdetensao">Poder de Tensao</label>
+            <input type="number" id="poderdetensao" name="poderdetensao" value="0" readonly>
+            <button onclick="adicionarHabilidade('poderdetensao')"> + </button>
+            <br>
+            <label for="maestriadearmas">Maestria de Armas</label>
+            <input type="number" id="maestriadearmas" name="maestriadearmas" value="0" readonly>
+            <button onclick="adicionarHabilidade('maestriadearmas')"> + </button>
+            <br>
+            <label for="escudos">Escudos</label>
+            <input type="number" id="escudos" name="escudos" value="0" readonly>
+            <button onclick="adicionarHabilidade('escudos')"> + </button>
+            <br>
+            <label for="atletismo">Atletismo</label>
+            <input type="number" id="atletismo" name="atletismo" value="0" readonly>
+            <button onclick="adicionarHabilidade('atletismo')"> + </button>
+            <br>
+            <label for="cavalgar">Cavalgar</label>
+            <input type="number" id="cavalgar" name="cavalgar" value="0" readonly>
+            <button onclick="adicionarHabilidade('cavalgar')"> + </button>
+            <br>
+            <label for="arqueariamontada">Arquearia Montada</label>
+            <input type="number" id="arqueariamontada" name="arqueariamontada" value="0" readonly>
+            <button onclick="adicionarHabilidade('arqueariamontada')"> + </button>
+            <br>
+            <label for="saquear">Saquear</label>
+            <input type="number" id="saquear" name="saquear" value="0" readonly>
+            <button onclick="adicionarHabilidade('saquear')"> + </button>
+            <br>
+            <label for="treinamento">Treinamento</label>
+            <input type="number" id="treinamento" name="treinamento" value="0" readonly>
+            <button onclick="adicionarHabilidade('treinamento')"> + </button>
+            <br>
+            <label for="rastrear">Rastrear</label>
+            <input type="number" id="rastrear" name="rastrear" value="0" readonly>
+            <button onclick="adicionarHabilidade('rastrear')"> + </button>
+            <br>
+            <label for="taticas">Táticas</label>
+            <input type="number" id="taticas" name="taticas" value="0" readonly>
+            <button onclick="adicionarHabilidade('taticas')"> + </button>
+            <br>
+            <label for="exploracao">Exploração</label>
+            <input type="number" id="exploracao" name="exploracao" value="0" readonly>
+            <button onclick="adicionarHabilidade('exploracao')"> + </button>
+            <br>
+            <label for="visao">Visão</label>
+            <input type="number" id="visao" name="visao" value="0" readonly>
+            <button onclick="adicionarHabilidade('visao')"> + </button>
+            <br>
+            <label for="cargadeinventario">Carga de Inventário</label>
+            <input type="number" id="cargainventario" name="cargainventario" value="0" readonly>
+            <button onclick="adicionarHabilidade('cargadeinventario')"> + </button>
+            <br>
+            <label for="tratarferidas">Tratar Feridas</label>
+            <input type="number" id="tratarferidas" name="tratarferidas" value="0" readonly>
+            <button onclick="adicionarHabilidade('tratarferidas')"> + </button>
+            <br>
+            <label for="cirurgia">Cirurgia</label>
+            <input type="number" id="cirurgia" name="cirurgia" readonly>
+            <button onclick="adicionarHabilidade('cirurgia')"> + </button>
+            <br>
+            <label for="primeirossocorros">Primeiros Socorros</label>
+            <input type="number" id="primeirossocorros" name="primeirossocorros" value="0" readonly>
+            <button onclick="adicionarHabilidade('primeirossocorros')"> + </button>
+            <br>
+            <label for="engenharia">Engenharia</label>
+            <input type="number" id="engenharia" name="engenharia" value="0" readonly>
+            <button onclick="adicionarHabilidade('engenharia')"> + </button>
+            <br>
+            <label for="persuasao">Persuasão</label>
+            <input type="number" id="persuasao" name="persuasao" value="0" readonly>
+            <button onclick="adicionarHabilidade('persuasao')"> + </button>
+            <br>
+            <label for="gestaodeprisioneiros">Gestão de Prisioneiros</label>
+            <input type="number" id="gestaodeprisioneiros" name="gestaodeprisioneiros" value="0" >
+            <button onclick="adicionarHabilidade('gestaodeprisioneiros')"> + </button>
+            <br>
+            <label for="lideranca">Liderança</label>
+            <input type="number" id="lideranca" name="lideranca" value="0" readonly>
+            <button onclick="adicionarHabilidade('lideranca')"> + </button>
+            <br>
+            <label for="comercio">Comércio</label>
+            <input type="number" id="comercio" name="comercio" value="0" readonly>
+            <button onclick="adicionarHabilidade('comercio')"> + </button>
+            <br><br>
+            <label for="somahabilidades">Total</label>
+            <input type="number" id="somahabilidades" name="somahabilidades" value="20" readonly >
+            <br><br>
+            <hr>    
+        
+                <script>
+                    function adicionarHabilidade(habilidade) {
+                    var somahabilidadeInput = document.getElementById("somahabilidade");
+                    var habilidadeInput = document.getElementById(habiliade);
+                
+                    // Verifica se ainda há pontos disponíveis para atribuir
+                        if (parseInt(somahabilidadeInput.value) > 0) {
+                            somahabilidadeInput.value = parseInt(somahabilidadeInput.value) - 1;
+                            habilidadeInput.value = parseInt(habilidadeInput.value) + 1;
+                        } else {
+                            alert("Você já usou todos os pontos disponíveis!");
+                        }
+                    }
+                </script>
+
+
+            <h2>Perícias</h2>
+            <label for="umamao">Uma Mão</label>
+            <input type="number" id="umamao" name="umamao" value="0" readonly>
+            <button onclick="adicionarPericia('umamao')"> + </button>
+            <br>
+            <label for="duasmao">Duas Mãos</label>
+            <input type="number" id="duasmao" name="duasmao" value="0" readonly>
+            <button onclick="adicionarPericia('duasmao')"> + </button>
+            <br>
+            <label for="lancas">Lanças</label>
+            <input type="number" id="lancas" name="lancas" value="0" readonly>
+            <button onclick="adicionarPericia('lancas')"> + </button>
+            <br>
+            <label for="arco">Arco</label>
+            <input type="number" id="arco" name="arco" value="0" readonly>
+            <button onclick="adicionarPericia('arco')"> + </button>
+            <br>
+            <label for="bestas">Bestas</label>
+            <input type="number" id="besta" name="besta" value="0" readonly>
+            <button onclick="adicionarPericia('bestas')"> + </button>
+            <br>
+            <label for="armasdearremesso">Armas de Arremesso</label>
+            <input type="number" id="armadearremesso" name="armadearremesso" value="0" readonly>
+            <button onclick="adicionarPericia('armadearremesso')"> + </button>
+            <br><br>
+            <label for="somapericia">Total</label>
+            <input type="number" id="somapericia" name="somapericia" value="20" readonly >
+            <br><br>
+            <hr>
+
+            <script>
+                function adicionarHabilidade(habilidade) {
+                var somahabilidadeInput = document.getElementById("somahabilidade");
+                var habilidadeInput = document.getElementById(habiliade);
+            
+                // Verifica se ainda há pontos disponíveis para atribuir
+                    if (parseInt(somahabilidadeInput.value) > 0) {
+                        somahabilidadeInput.value = parseInt(somahabilidadeInput.value) - 1;
+                        habilidadeInput.value = parseInt(habilidadeInput.value) + 1;
+                    } else {
+                        alert("Você já usou todos os pontos disponíveis!");
+                    }
+                }
+            </script>
+
+            <button> Enviar Ficha </button>
         </form>
 
-        <div>
-            <a href="cadloginM.html">Novo Aqui? Cadastra-se!</a>
-            <a href="esqueceu.html">Esqueceu a Senha?</a>
+        <div class="rodape">
+            <footer>
+                <a href="home.html"><strong>Home</strong></a>
+            </footer>
         </div>
-    </div>
-</body>
-</html>
+    </body>
