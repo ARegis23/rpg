@@ -91,15 +91,11 @@
                     var atributoInput = document.getElementById(atributo);
                 
                     // Verifica se ainda há pontos disponíveis para atribuir
-                    if parseInt(somaAtributosInput.value) <= level*10) {
-                            somaAtributosInput.value = parseInt(somaAtributosInput.value) - 1;
-                            atributoInput.value = parseInt(atributoInput.value) + 1;
                     if (parseInt(somaAtributosInput.value) > 0) {
                         somaAtributosInput.value = parseInt(somaAtributosInput.value) - 1;
                         atributoInput.value = parseInt(atributoInput.value) + 1;
                     } else {
                         alert("Você já usou todos os pontos disponíveis!");
-                    }
                     }
                 </script>
 
