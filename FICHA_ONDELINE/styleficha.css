@@ -1,26 +1,45 @@
-input {
-    padding: 5px;
-    margin: 5px;
-    text-align: center;
+body {
+    font-family: Arial, sans-serif;
+    background-color: rgb(63, 186, 200);
 }
 
-button {
-    width: 200px;
+.form input[type="text"] {
+    width: 40px;
     font-size: 20px;
+    margin: 5px;
+    text-align: center;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+
+button {
+    width: 40px;
+    font-size: 20px;
+    margin: 0px auto;
     color:azure;
     background-color: #1507d8;
     cursor: pointer;
 }
 
 button:hover {
-    background-color: #0a0a09;
+    background-color: #f4f41f;
     transition: 0.3s all;    
 }
 
 label{
 display: inline-block;
-width: 50px;
-text-align: right;
+width: 250px;
 font-size: 20px;
-margin-left: 100px;
+}
+
+a {
+    display: block;
+    margin-bottom: 10px;
+    text-decoration: none;
+    text-align: center;
+    color: #f2ff00;
+    font-family: cursive;
+    font-size: 18px;
 }
