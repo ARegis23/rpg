@@ -14,32 +14,34 @@
 
 <!--CABEÇALHO PÁGINA-->
         <!--TÍTULO-->
-
+    <div class="titulo">
         <h1>Ficha de Personagem</h1>
         
-        <form class="form"  action="processar_formulario.php" method="post">
+        <form action="processar_formulario.php" method="post">
 
             <h2>Informações Básicas</h2>
 
             <label for="nome"> Nome do Personagem </label>
-        <!--TÍTULO-->
-        <!--INFOS-->
-        <div class="infos">
-            <input type="text" id="nome" name="nome" pattern="[a-zA-Z0-9]+">
+            <input type="text" id="nome" class="" name="nome" pattern="[a-zA-Z0-9]+">
             <!--required-->
-                <br>
-                
+            <br>
+        </form>
+        <!--TÍTULO-->
+    </div>
+        <!--INFOS-->
+    <div class="infos">
+    <form class="form"  action="processar_formulario.php" method="post">
+        <div class="esquerda">
                 <!--calcular automaticamente o valor da vida-->
-                <p> Level: <span id="level"> 01 </span> </p>
+                <p> Level: <span id="level"> 1 </span> </p>
                 <p>Vida: <span id="vida"> ${vida} </span></p>
         </div>
-        <div class="infos">
+        <div class="direita">
                 <label for="dinheiro"> Dinheiro $ </label>
-                <input type="number" id="dinheiro" name="dinheiro" readonly>
-                <button onclick="adicionarHabilidade('vidaferro')"> + </button><button> - </button>
-                <br>
-
-                <br>
+                <input type="number" id="dinheiro" name="dinheiro" value=0000  readonly>
+                <button> + </button><button> - </button>
+                
+                <br><br>
 
             <label for="genero">Gênero</label>
             <select id="genero" name="genero">
@@ -63,19 +65,20 @@
                 <option value="s">Sarranids</option>
             </select>
 
-                <br><br>
         </div>
+    </div>
         <div class="historia">
             <label for="historia">Historia de Fundo</label>
-            <input type="text" id="historia" name="historia">
+            <input type="text" id="historia" class="titulo" name="historia">
             <!--required-->
-        </div><br><br>
+        </div>
 
-
+    </form>
         <!--INFOS-->
 <!--CABEÇALHO PÁGINA-->
             <hr>
-
+    <div class="atribuicoes">
+        <form class=""  action="processar_formulario.php" method="post">
             <h2>Atributos</h2>
             <label for="forca">Força</label>
             <input type="text" id="forca" name="forca" pattern="[a-zA-Z0-9]+" value="0" readonly>
@@ -280,6 +283,7 @@
 
             <button> Enviar Ficha </button>
         </form>
+    </div>
 
         <div class="rodape">
             <footer>
