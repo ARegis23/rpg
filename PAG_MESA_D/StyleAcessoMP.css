@@ -1,0 +1,103 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: rgb(63, 186, 200);
+}
+
+/*estilo pagina*/
+
+.login {
+    width: 300px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.login form div {
+    margin-bottom: 15px;
+}
+
+.login form input[type="text"],
+.login form input[type="password"],
+.login form input[type="submit"],
+button{
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.login form input[type="submit"],
+button{
+    background-color: #230796;
+    color: #fff;
+    cursor: pointer;
+}
+
+.login form input[type="submit"]:hover{
+    background-color: #0a0a09;
+    transition: 0.3s all   
+}
+
+button:hover{
+    background-color: #0a0a09;
+    transition: 0.3s all   
+}
+
+.login div a {
+    display: block;
+    margin-bottom: 10px;
+    text-decoration: none;
+    color: #f2ff00;
+    font-family: cursive;
+    font-size: 18px;
+}
+
+/*estilo do popup*/ 
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+}
+
+.popup-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+h2 {
+    margin-top: 0;
+}
+
+input[type="text"],
+input[type="password"],
+button {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.rodape{
+    position:relative;
+}
+
+.rodape p{
+    position: absolute;
+    margin-left: 40%;
+}
