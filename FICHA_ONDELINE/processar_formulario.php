@@ -1,8 +1,8 @@
 <?php
 // Conectar ao banco de dados (substitua os valores conforme necessário)
 $servername = "localhost";
-$username = "root";
-$password = "";
+$username = "id21925437_regis";
+$password = "Rpg@12345";
 $dbname = "rpg";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
