@@ -1,0 +1,23 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: rgb(63, 186, 200);
+}
+
+.lista {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/*voltar*/
+
+
+/*rodape*/
+.rodape{
+    position:relative;
+}
+
+.rodape p{
+    position: absolute;
+    margin-left: 40%;
+}

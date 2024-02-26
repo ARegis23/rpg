@@ -3,8 +3,6 @@ body {
     background-color: rgb(63, 186, 200);
 }
 
-/*estilo pagina*/
-
 .login {
     width: 300px;
     margin: 0 auto;
@@ -93,6 +91,7 @@ button {
     margin-bottom: 10px;
 }
 
+/*rodape*/
 .rodape{
     position:relative;
 }
